@@ -20,7 +20,7 @@ Metodología a aplicar:
 5. Entrenamiento y evaluación: Dividiré el dataset usando un 80% de los datos para el entrenamiento y un 20% para el testeo. Evaluaré el desempeño mediante Accuracy y analizaré los errores usando una matriz de confusión.
 
 Conclusiones 
-Tras sometes los modelos al 20% de datos ocultos para el testeom los resultados de exactitud fueron:
+Tras someter los modelos al 20% de datos ocultos para el testeo los resultados de exactitud fueron:
 Exactitud Regresión Logística: 81.60%
 Exactitud K-Nearest Neighbors: 85.05%
 
