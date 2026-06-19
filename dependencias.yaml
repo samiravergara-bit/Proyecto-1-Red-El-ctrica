@@ -1,0 +1,7 @@
+name: proyecto-ia-redes-electricas
+dependencies:
+  - python
+  - pandas
+  - scikit-learn
+  - matplotlib
+  - seaborn
