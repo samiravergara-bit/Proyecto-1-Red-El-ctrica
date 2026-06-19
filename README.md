@@ -11,7 +11,7 @@ Implementaré y compararé dos modelos:
 2. K-Nearest Neighbors (KNN): Es ideal para datos numéricos continuos como los voltajes y las potencias. Al no asumir una relación lineal (que era lo que nos pasaba con regresión) puede encontrar patrones de intestabilidad agrupando escenarios similares. Si un escenario nuevo tiene parámetros muy parecidos a otros 5 escenarios que colapsaron, predecirá bien la intestabilidad. La limitación es que es sensible a outliers y requiere procesar todos los datos de entrenamiento cada vez que hace una predicción.
 
 Metodología a aplicar:
-1. Primero cargar el Dataset  con Pandas y revisar la cantidad de filas (en este caso comprobé que eran 10.000 lo cuál es un número suficiente para poder trabajar), también revisaré la estrutura de los datos y generaré gráficos de distribución para entender cómo se comportan las ptoencias y detectar si hay valores atípicos
+1. Primero cargar el Dataset  con Pandas y revisar la cantidad de filas (en este caso comprobé que eran 10.000 lo cuál es un número suficiente para poder trabajar), también revisaré la estrutura de los datos y generaré gráficos de distribución para entender cómo se comportan las potencias y detectar si hay valores atípicos
 2. Para darle mejores pistas a los modelos crearé una nueva variable numérica que sume los balances de los tres nodos de consumo, así tendré la "potencia total demandada" por el sistema
 3. Entrenaré y compararé los dos algoritmos mencionados
 4. Dividiré el dataset usando un 80% de los datos para el entrenamiento y un 20% para el testeo. Evaluaré el desempeño mediante Accuracy y analizaré los errores usando una matriz de confusión. 
