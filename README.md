@@ -21,8 +21,8 @@ Implementaré y compararé dos modelos:
 
 Metodología a aplicar:
 1. Análisis Exploratorio (EDA): Primero cargar el Dataset con Pandas y revisar la cantidad de filas (en este caso comprobé que eran 10.000 lo cuál es un número suficiente para poder trabajar), también revisaré la estrutura de los datos y generaré gráficos de distribución para entender cómo se comportan las potencias y detectar si hay valores atípicos
-2. Feature Engineering: Para darle una pista a los modelos, crearé una nueva variable numérica que sume las potencias de los 3 consumidores y será la potencia total de carga.
-3. Feature Selection: Aunque a priori yo ya sé que necesito todas las columnas de variables del sistema, de todas maneras implementaré un Feature Selection con Mutual Information para justificar esta decisión dentro del código, así comprobaré qué parámetros aportan la mayor cantidad de información para la clasificación. 
+2. Feature Engineering: Para darle una pista a los modelos, crearé nuevas variables numéricas
+3. Feature Selection: Implementaré un Feature mutual information para seleccionar las variables que realmente aportan algo al sistema.
 4. Reducción de dimensionalidad (PCA): Para optimizar el rendimiento de los modelos, aplicaré PCA para   comprimir las dimensiones sin perder información significativa. Así podré también eliminar ruido. tener un modelo más rápido y menos propenso al overfitting y me ayudará en el KNN porque al tener espacios de baja dimensión las distancias serán más significativas.
 5. Estandarización: Aplicaré un escalado a los datos (StandardScaler) para que todas las variables operen con la misma escala matemática y así KNN calcule bien las distancias.
 6. Entrenamiento y evaluación: Dividiré el dataset usando un 80% de los datos para el entrenamiento y un 20% para el testeo. Evaluaré el desempeño mediante Accuracy, precision, recall, F1-Score, ROC-AUC.
