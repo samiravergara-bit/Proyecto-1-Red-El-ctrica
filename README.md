@@ -52,10 +52,10 @@ ROC-AUC: 0.8004
 
 Las gráficas de las matrices de confusion confirman el sesgo intencional que se le dio a los modelos. Podemos ver que en la Regresión Logística (gracias a class_weight="balanced") priorizó equivocarse lanzando advertencias de "estable" con tal de minimizar  t odas costa los espacios en blanco en la detección de una falla.
 
+Conclusión
+
 Lo más complicado de este proyecto fue la exactitud "perfecta". Inicialmente, hice el modelo sin el ajuste temporal y sin balancear y arrojó 99.9% de exactitud, a lo cuál tras darle muchas vueltas entendí que era porque estaba mezclando filtraciones futuras con el pasado.
 Cuando corregí el enfoque y dividí el tiempo al final igual era como predecir una aguja en un pajar.
-
-Conclusión
 
 En este tipo de datasets con cronología era importante mantener la temporalidad de los datos, además, no todas las variables daban información, algunas estaban totalmente vacías y sin datos. En general el modelo es confiable porque detectó casi todos los colapsos potenciales.
 
