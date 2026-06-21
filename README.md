@@ -1,6 +1,9 @@
 # Proyecto 1: Mantenimiento predictivo y detección de anomalías en un motor industrial mediante sensores
 
+Tuve que cambiar el dataset ya que me indicó que debían ser datos reales y no simulados, como no encontré algo exactamente igual a lo anterior con datos reales busqué algo similar, el espíritu es el mismo, sin embargo, tuve que hacer cambios debido a que similar no es lo mismo que igual.
+
 Descripción del problema
+
 Una planta industrial debe mantener sus motores pirncipales operativos de forma continua. Si no se detectan a tiempo las fallas de desgaste o por problemas eléctricos, el sistema puede pasar de un estado normal a colapsar deteniendo la producción.
 El desafío principal es que las fallas mecánicas no ocurren de un segundo sino que son procesos que suceden en el tiempo. Identificarlas es difícil porque el motor funciona de buena manera (lo que llamaré estado "normal") la mayor parte de su vida útil y eso hace que estas fallas sean raras y haya un alto desbalance de clases.
 
@@ -18,6 +21,7 @@ Implementaré y compararé dos modelos:
 2. K-Nearest Neighbors (KNN): Es ideal para datos numéricos continuos de sensores. Al no asumir una relación lineal puede encontrar patrones de intestabilidad agrupando comportamientos físicos similares. Si la lectura actual de los sensores es similar a la de un escenario histórico que terminó en en falla entonces va a predecir el colapso. Como mencioné en un inicio los tiempos de falla son my inferiores vs el funcionaineto normal del equipo por que para contrarrestarlo usaré el parámetro "weights="distance"", así las fallas que estpen más cercar del dato evaluado tendrán mayor valor predictivo.
 
 Metodología a aplicar:
+
 1. Análisis Exploratorio (EDA): Primero cargar el Dataset con Pandas. Eliminar los sensores que tengan un 100% de datos nulos (como el sensor_15) para evitar errores. Para los microcortes en la lectura, en lugar de rellenar con ceros utilizaré un relleno progresivo ("ffill") que mantiene el último valor válido en el tiempo.
 2. Feature Engineering: Para darle una pista a los modelos, crearé la variable "vibracion_promedio" agrupando los primeros sensores de la máquina.
 3. Control de la cronología: Como es una serie de tiempo usar una división aleatoria causarpia que el modelo haga trampa estudiando "el futuro" para adivinar "el pasado". Para evitarlo haré im corte manual(split) de 70% para entrenamiento y 30% para testeo, asegurando que evalúe con el último tramo de tiempo real del motor.
@@ -33,12 +37,14 @@ Resultados obtenidos e interpretación de métricas
 Para evaluar el desempeño del modelo utilcé un 30% del dataset (ordenado cronológicamente), simulando como se iba a comportar el motor en el futuro. Este bloque de prueba tenía 66.096 minutos de operación del motor dentro de los cuales solamente 76 minutos correspondían a colapso o "falla"
 
 Resultados Regresión Logística 
+
 Recall: 91%. El modelo detectó 69 de los 76 minutos de falla real
 Precisión: 31%. Indica que de todas las veces que el modelo encedió la alarma preventiva mas o menos 1 de cada 3 era una falla real inminente, las demás fueron falsas alarmas.
 Acurracy: 99.76%
 ROC-AUC: 0.9976 Significa que el algortimo tenia buena capacidad para detectar entre un motor sano y uno defectuoso incluso con el balance extremo de los datos.
 
 Resultados KNN 
+
 Recall: 55%. El modelo detectó 42 de los 76 minutos de falla real
 Precisión: 15% En este caso el acierto cuando emitió las alertas fue muy bajo, lo que generó un exceso de falsas alarmas a comparación de la Regresión Logistica.
 Acurracy: 99.59%
@@ -50,6 +56,7 @@ Lo más complicado de este proyecto fue la exactitud "perfecta". Inicialmente, h
 Cuando corregí el enfoque y dividí el tiempo al final igual era como predecir una aguja en un pajar.
 
 Conclusión
+
 En este tipo de datasets con cronología era importante mantener la temporalidad de los datos, además, no todas las variables daban información, algunas estaban totalmente vacías y sin datos. En general el modelo es confiable porque detectó casi todos los colapsos potenciales.
 
 
