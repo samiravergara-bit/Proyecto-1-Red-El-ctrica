@@ -7,7 +7,7 @@ Descripción del problema
 Una planta industrial debe mantener sus motores pirncipales operativos de forma continua. Si no se detectan a tiempo las fallas de desgaste o por problemas eléctricos, el sistema puede pasar de un estado normal a colapsar deteniendo la producción.
 El desafío principal es que las fallas mecánicas no ocurren de un segundo sino que son procesos que suceden en el tiempo. Identificarlas es difícil porque el motor funciona de buena manera (lo que llamaré estado "normal") la mayor parte de su vida útil y eso hace que estas fallas sean raras y haya un alto desbalance de clases.
 
-Dataset
+Dataset (No lo pude subir porque github aguanta hasta 28 MB pero este repositorio comprimido pesa 37MB)
 
 Utilizaré un dataset de lecturas de sensores ("sensor.cv) (https://www.kaggle.com/datasets/nphantawee/pump-sensor-data/data) el cuál contiene 220.320 registros temporales. Las columnas representan variables físicas extraídas de la máquina a lo largo de varios meses: 
 - sensor_00 al sensor_51: Lectoras continuas que monitorean vibración, temperatura y comportamiento eléctrico
